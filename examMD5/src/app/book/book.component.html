@@ -1,0 +1,81 @@
+<div class="container" style="margin-top:10px">
+    <div class="row">
+<!--        <div class="col-sm-3">-->
+<!--            <h3>Some Links</h3>-->
+<!--            <p>Lorem ipsum dolor sit ame.</p>-->
+
+<!--            <ul class="nav nav-pills flex-column">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" href="#">Active</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Link</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Link</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link disabled" href="#">Disabled</a>-->
+<!--                </li>-->
+
+
+<!--            </ul>-->
+<!--            <hr class="d-sm-none">-->
+<!--        </div>-->
+        <div class="col-sm-9">
+            <label for="site-search">Search the site:</label>
+            <input type="search" id="site-search" name="q"
+                   aria-label="Search through site content">
+            <button>Search</button>
+            <!--      <button class="favorite styled" routerLink="/sang/create" type="button"> create</button>-->
+            <button class="btn btn-success" routerLink="/sang/create" type="button"> create</button>
+            <div>
+
+            </div>
+
+            <table style="border: 2px">
+                <caption style="text-align: center">Making the Web Beautiful!</caption>
+                <thead>
+                <tr>
+                    <th colspan="5" style="text-align: center">Book manager</th>
+                </tr>
+                <tr colspan="5" style="background-color: steelblue"> <h5>có {{total}} cuốn sách</h5></tr>
+                <tr style="background-color: steelblue">
+                    <th style="text-align: center">id</th>
+                    <th style="text-align: center">name</th>
+                    <th style="text-align: center">author</th>
+                    <th style="text-align: center">edit</th>
+                    <th style="text-align: center">delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let sang of books  ">
+
+                    <td>{{sang.id}}</td>
+
+                    <td><a routerLink="/sang/detail/{{sang.id}}">{{sang.title}}</a></td>
+
+                    <td>{{sang.author}}</td>
+
+                    <td>
+                        <!--            <button mat-icon-button color="primary" [routerLink]="['/sang/edit/',sang.id]">Edit</button>-->
+                        <button mat-icon-button style="color: blue" [routerLink]="['/sang/edit/',sang.id]">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+
+                    </td>
+
+                    <td>
+                        <!--            <button type="button" (click)="delete(sang.id)"  class="btn"><i class="material-icons"-->
+                        <!--                                                                            style="color: firebrick">delete_forever</i>-->
+                        <!--            </button>-->
+                        <button type="button" (click)="delete(sang.id)" class="btn" mat-icon-button style="color: red">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
